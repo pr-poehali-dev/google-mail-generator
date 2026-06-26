@@ -1,0 +1,17 @@
+{
+  "tests": [
+    {
+      "name": "Get domains",
+      "method": "GET",
+      "path": "/?action=domains",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "OPTIONS CORS",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
