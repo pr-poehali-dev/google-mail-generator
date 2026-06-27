@@ -228,21 +228,21 @@ const Index = () => {
 
   return (
     <div className="min-h-screen grain">
-      <div className="mx-auto max-w-2xl px-5 py-12 sm:py-20">
+      <div className="mx-auto max-w-2xl px-4 sm:px-5 py-8 sm:py-20 pb-safe">
 
         {/* Header */}
-        <header className="mb-12 animate-fade-in">
-          <div className="flex items-center gap-2.5 mb-6">
+        <header className="mb-8 sm:mb-12 animate-fade-in">
+          <div className="flex items-center gap-2.5 mb-5 sm:mb-6">
             <div className="grid h-9 w-9 place-items-center rounded-xl bg-foreground text-background">
               <Icon name="Mail" size={18} />
             </div>
             <span className="font-semibold tracking-tight">MailForge</span>
           </div>
-          <h1 className="text-[2.6rem] sm:text-5xl font-black leading-[1.05] tracking-tight">
+          <h1 className="text-[2rem] sm:text-5xl font-black leading-[1.05] tracking-tight">
             Временная<br />
             <span className="text-accent">почта на 40 мин</span>
           </h1>
-          <p className="mt-4 text-muted-foreground max-w-md">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground max-w-md">
             Реальный почтовый ящик — письма приходят по-настоящему. Ящик живёт 40 минут, данные хранятся только в браузере.
           </p>
         </header>
@@ -251,7 +251,7 @@ const Index = () => {
         <button
           onClick={generate}
           disabled={loading}
-          className="group w-full rounded-2xl bg-foreground py-5 text-background font-semibold text-lg transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60"
+          className="group w-full rounded-2xl bg-foreground py-4 sm:py-5 text-background font-semibold text-base sm:text-lg transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60"
         >
           <span className="inline-flex items-center gap-2.5">
             {loading
@@ -269,7 +269,7 @@ const Index = () => {
 
         {/* Active mailbox */}
         {view && (
-          <div key={view.id} className="mt-6 animate-scale-in rounded-3xl border border-border bg-card p-6 shadow-[0_8px_40px_-12px_hsl(220_18%_14%/0.12)]">
+          <div key={view.id} className="mt-4 sm:mt-6 animate-scale-in rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-6 shadow-[0_8px_40px_-12px_hsl(220_18%_14%/0.12)]">
 
             {/* Timer */}
             <div className="mb-5">
@@ -292,26 +292,26 @@ const Index = () => {
             {/* Email */}
             <div className="mb-3">
               <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Адрес</label>
-              <div className="mt-1.5 flex items-center justify-between gap-3 rounded-xl bg-secondary px-4 py-3.5">
-                <span className="font-mono text-sm sm:text-base truncate">{view.email}</span>
-                <button onClick={() => doCopy(view.email, 'email')} className="shrink-0 text-muted-foreground transition-colors hover:text-accent">
+              <div className="mt-1.5 flex items-center justify-between gap-2 rounded-xl bg-secondary px-3 sm:px-4 py-3 sm:py-3.5">
+                <span className="font-mono text-xs sm:text-base truncate">{view.email}</span>
+                <button onClick={() => doCopy(view.email, 'email')} className="shrink-0 text-muted-foreground transition-colors hover:text-accent p-1">
                   <Icon name={copied === 'email' ? 'Check' : 'Copy'} size={18} />
                 </button>
               </div>
             </div>
 
             {/* Password */}
-            <div className="mb-5">
+            <div className="mb-4 sm:mb-5">
               <label className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Пароль</label>
-              <div className="mt-1.5 flex items-center justify-between gap-3 rounded-xl bg-secondary px-4 py-3.5">
-                <span className="font-mono text-sm sm:text-base truncate">
+              <div className="mt-1.5 flex items-center justify-between gap-2 rounded-xl bg-secondary px-3 sm:px-4 py-3 sm:py-3.5">
+                <span className="font-mono text-xs sm:text-base truncate">
                   {showPass ? view.password : '•'.repeat(view.password.length)}
                 </span>
-                <div className="flex shrink-0 items-center gap-3">
-                  <button onClick={() => setShowPass((v) => !v)} className="text-muted-foreground transition-colors hover:text-accent">
+                <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+                  <button onClick={() => setShowPass((v) => !v)} className="text-muted-foreground transition-colors hover:text-accent p-1">
                     <Icon name={showPass ? 'EyeOff' : 'Eye'} size={18} />
                   </button>
-                  <button onClick={() => doCopy(view.password, 'pass')} className="text-muted-foreground transition-colors hover:text-accent">
+                  <button onClick={() => doCopy(view.password, 'pass')} className="text-muted-foreground transition-colors hover:text-accent p-1">
                     <Icon name={copied === 'pass' ? 'Check' : 'Copy'} size={18} />
                   </button>
                 </div>
@@ -360,8 +360,8 @@ const Index = () => {
         )}
 
         {/* Saved accounts */}
-        <section className="mt-12">
-          <div className="mb-4 flex items-center gap-2">
+        <section className="mt-8 sm:mt-12">
+          <div className="mb-3 sm:mb-4 flex items-center gap-2">
             <Icon name="Database" size={16} className="text-muted-foreground" />
             <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
               Мои ящики
@@ -384,12 +384,12 @@ const Index = () => {
                 return (
                   <div
                     key={a.id}
-                    className={`flex items-center gap-3 rounded-xl border px-4 py-3 transition-colors ${
+                    className={`flex items-center gap-2 sm:gap-3 rounded-xl border px-3 sm:px-4 py-3 transition-colors ${
                       active ? 'border-accent bg-accent/5' : 'border-border hover:bg-secondary'
                     }`}
                   >
                     <button onClick={() => handleSelect(a)} className="min-w-0 flex-1 text-left">
-                      <div className={`truncate font-mono text-sm ${expired ? 'line-through text-muted-foreground' : ''}`}>
+                      <div className={`truncate font-mono text-xs sm:text-sm ${expired ? 'line-through text-muted-foreground' : ''}`}>
                         {a.email}
                       </div>
                       <div className="text-xs text-muted-foreground flex items-center gap-1.5 mt-0.5">

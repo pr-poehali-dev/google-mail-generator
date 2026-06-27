@@ -93,12 +93,14 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: "Golos Text", sans-serif;
     -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
   }
 }
 
@@ -112,5 +114,8 @@
       transparent 1px
     );
     background-size: 22px 22px;
+  }
+  .pb-safe {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
   }
 }
